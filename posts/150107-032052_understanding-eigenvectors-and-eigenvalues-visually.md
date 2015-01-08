@@ -36,14 +36,13 @@ Lets start with a simple transformation matrix, $A = \begin{bmatrix}
 <pre><code class="language-python">
 In [1]: A = np.matrix([[2, 0], [0, 3]])
 In [2]: evals, evecs = np.linalg.eig(A)
-In [3]: print(evals, '\n', evecs)
 
-Out[3]: [ 2.  3.]
-		[[ 1.  0.]
-         [ 0.  1.]]
+Out[2]: evals:  [ 2.  3.]
+	    evecs: [[ 1.  0.]
+		        [ 0.  1.]]
 </code></pre>
 
-The first eigenvalue, 2, is associated with the eigenvector (1, 0). Equation of the line through $(0,0)$ and $(1,0)$ is $y = 0$. So, any point on this line when multiplied by the transformation matrix $A$, will be scaled by 2.
+The first eigenvalue, 2, is associated with the eigenvector in the first column (1, 0). Equation of the line through $(0,0)$ and $(1,0)$ is $y = 0$. So, any point on this line when multiplied by the transformation matrix $A$, will be scaled by 2.
 
 Similarly, for the second eigenvalue, any point on the line $x = 0$ will be scaled by 3.
 
@@ -57,7 +56,7 @@ Lets use a more involved transformation matrix $A = \begin{bmatrix}
 For visualisation, we'll plot a matrix $x = \begin{bmatrix}
 -10 & -10 & 20 & 20\\\
 -10 & 20 & 20 & -10
-\end{bmatrix}$ and its transformed state after multiplied with $A$.
+\end{bmatrix}$ and its transformed state after it has been multiplied with $A$.
 
 ![transformed_plot](https://www.dropbox.com/s/ftqwtq53tcydnvn/eigens-transformation_matrix.png?dl=1)
 
