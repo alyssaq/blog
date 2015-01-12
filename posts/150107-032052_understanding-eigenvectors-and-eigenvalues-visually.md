@@ -25,7 +25,10 @@ Eigenvalue $\lambda$ and its corresponding eigenvector is found by solving the e
 __What does determinant zero mean?__    
 Heres a nice [factsheet of determinant properties](http://www.math.harvard.edu/~elkies/M21b.08/det.html). If the $det(M) = 0$, $M$ is not invertible (columns cannot be swapped) and the rows and columns of $M$ are linearly dependent (one of the vectors in the set can be represented by the others. E.g {[2, 3], [4, 6]} are dependent as the second vector is a scaled version of the first vector in the set.)
 
-You should watch Khan Academy's [example solving eigenvalues](https://www.khanacademy.org/math/linear-algebra/alternate_bases/eigen_everything/v/linear-algebra-example-solving-for-the-eigenvalues-of-a-2x2-matrix) and the entire _Eigen-eveything_ series if you want a step-by-step calculation and cement the maths. I also found these resources useful: [resource1](http://www.math.msu.edu/~shapiro/Teaching/classes/311UH_05/Eigenvalues.pdf), [resource2](http://math.mit.edu/~gs/linearalgebra/ila0601.pdf).
+You should watch Khan Academy's [example solving eigenvalues](https://www.khanacademy.org/math/linear-algebra/alternate_bases/eigen_everything/v/linear-algebra-example-solving-for-the-eigenvalues-of-a-2x2-matrix) and the entire _Eigen-eveything_ series if you want a step-by-step calculation and cement the maths. I also found these resources useful: 
+
+ * [Coordinates, Eigenvalues, and Eigenvectors (Michigan State University)](http://www.math.msu.edu/~shapiro/Teaching/classes/311UH_05/Eigenvalues.pdf)
+ * [Introduction to Linear Algebra, 4th ed, Chapter 6](http://math.mit.edu/~gs/linearalgebra/ila0601.pdf).
 
 ## Eigens of a scaling transformation matrix
 Lets start with a simple transformation matrix, $A = \begin{bmatrix}
