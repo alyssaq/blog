@@ -20,7 +20,8 @@ Between [multithreading and multiprocessing](#multithreading_multiprocessing), u
 
 Below is the [code gist](https://gist.github.com/alyssaq/9928442) to handle POST requests and continue processing with threads.
 Tested with `python 2.7` and `python 3.3` 
- <pre class="prettyprint">
+
+<pre><code class="language-python">
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -71,7 +72,7 @@ def process_handle():
 
 if __name__ == '__main__':
   bottle.run()
-</pre>
+</code></pre>
 
 
 ## Terminologies
