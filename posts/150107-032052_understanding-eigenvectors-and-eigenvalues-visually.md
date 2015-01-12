@@ -29,6 +29,7 @@ You should watch Khan Academy's [example solving eigenvalues](https://www.khanac
 
  * [Coordinates, Eigenvalues, and Eigenvectors (Michigan State University)](http://www.math.msu.edu/~shapiro/Teaching/classes/311UH_05/Eigenvalues.pdf)
  * [Introduction to Linear Algebra, 4th ed, Chapter 6](http://math.mit.edu/~gs/linearalgebra/ila0601.pdf).
+ * [Prof Gilbert Strang's Eigenvalues and Eigenvectors lecture at MIT](https://www.youtube.com/watch?v=lXNXrLcoerU)
 
 ## Eigens of a scaling transformation matrix
 Lets start with a simple transformation matrix, $A = \begin{bmatrix}
