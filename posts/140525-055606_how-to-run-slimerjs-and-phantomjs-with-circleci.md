@@ -59,4 +59,4 @@ Heres my full `circle.yml` file with auto-deployment to Heroku and a web hook to
         - url: https://my-circleci2slack.herokuapp.com/
 
 If all is good, you should see green lights in all the rows in circleCI:
-![image](https://www.dropbox.com/s/4x2l510kqlfx30q/SlimerJS-circleCI.png?dl=1)
+![image](https://alyssaq.github.io/blog/images/SlimerJS-circleCI.png)

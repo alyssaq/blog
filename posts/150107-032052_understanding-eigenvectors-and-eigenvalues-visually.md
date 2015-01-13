@@ -62,7 +62,7 @@ For visualisation, we'll plot a matrix $x = \begin{bmatrix}
 -10 & 20 & 20 & -10
 \end{bmatrix}$ and its transformed state after it has been multiplied with $A$.
 
-![transformed_plot](https://www.dropbox.com/s/ftqwtq53tcydnvn/eigens-transformation_matrix.png?dl=1)
+![transformed_plot](https://alyssaq.github.io/blog/images/eigens-transformation_matrix.png)
 
 The dashed square shows the original matrix $x$ and the transformed matrix $Ax$. Now we'll see where the eigens come into play.
 
@@ -87,7 +87,7 @@ Out [2]: m1 = -0.936, m2 = 1.603  # Round to 3dp
 
 So, our eigenvectors, which span all vectors along the line through the origin, have the equations: $y = -0.936x$ and $y = 1.603x$. This is plotted in blue and red below.
 
-![eigenvectors_plot](https://www.dropbox.com/s/f90fqq9a5gl53zs/eigens-eigenvector_plot.png?dl=1)
+![eigenvectors_plot](https://alyssaq.github.io/blog/images/eigens-eigenvector_plot.png)
 
 __What does this eigen plot tell us?__    
 The point where the first eigenvector line $e1$ intercepts the original matrix is $p1 = (10.68, -10)$. Multiplying this point by the corresponding eigenvalue of 0.719 OR by the transformation matrix $A$, yields $T(p1) = (7.684, -7.192)$.
@@ -120,6 +120,6 @@ Ax \\ &=
 
 Doing this for $e2$ will show the same calculation. To complete the visuals, we'll plot $p1$ (the intercept with $e1$), $p2$ (the intercept with $e2$) and their transformation point.         
 [<i class="fa fa-github-alt"></i> Gist for the full plot](https://gist.github.com/alyssaq/f56ba93b4d3b3be76943)
-![full_plot](https://www.dropbox.com/s/tr3v42rzf5pltis/eigens-full_plot.png?dl=1)
+![full_plot](https://alyssaq.github.io/blog/images/eigens-full_plot.png)
 
 I hope this set a good foundation for understanding other mathematical results.

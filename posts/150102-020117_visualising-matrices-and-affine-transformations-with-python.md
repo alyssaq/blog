@@ -65,7 +65,7 @@ $\begin{bmatrix}
 0 & 20 & 20 & 0
 \end{bmatrix}$ can be visualised as the corners of a square. Remember to view the lines as a bunch of points.
 <p style="text-align:center">
-<img src="https://www.dropbox.com/s/6cj37q8ycx90slu/matrix-plot.png?dl=1">
+<img src="https://alyssaq.github.io/blog/images/matrix-plot.png">
 </p>
 
 ## Identity matrix
@@ -73,12 +73,12 @@ Multiplying a matrix with the identity matrix does nothing to the matrix. That i
 \begin{bmatrix} 3 \\\ 13 \end{bmatrix} = \begin{bmatrix} 3 \\\ 13 \end{bmatrix}$. Each column in the indentity matrix are called [_basis vectors_](http://en.wikipedia.org/wiki/Basis_%28linear_algebra%29) (linearly independent and equations solve for 0). These will be super useful in deriving and visualising the transformation matrices.
 
 ##Scaling
-<img src="https://www.dropbox.com/s/s2fsu2gwz7eidgp/matrix-scaling.png?dl=1" style="float:left">
+<img src="https://alyssaq.github.io/blog/images/matrix-scaling.png" style="float:left">
 Lets say we want to scale our points by 2. The plot on the left shows the identity matrix in black and our end goal in red. Heres the [github gist](https://gist.github.com/alyssaq/90d5f116250c443cd928#file-plot_matrix_scaling-py) for the plot. The first vector along the _x_-axis, $\begin{bmatrix} 1 \\\ 0 \end{bmatrix}$ has to be multipled by 2 to get to $\begin{bmatrix} 2 \\\ 0 \end{bmatrix}$. The same is applied to the second vector along the _y_-axis.  Our end matrix is $\begin{bmatrix} 2 & 0 \\\ 0 & 2 \end{bmatrix}$. 
 
 To generalise, we can multiply a matrix by $\begin{bmatrix} k1 & 0 \\\ 0 & k2 \end{bmatrix}$ to achieve scaling in 2D space. $k1$ and $k2$ can be the same or different to obtain different scalings in the different dimensions.
 
-<img src="https://www.dropbox.com/s/uww2pcq8ak34zvg/matrix-scaling-result.png?dl=1" style="float:right">
+<img src="https://alyssaq.github.io/blog/images/matrix-scaling-result.png" style="float:right">
 
 Lets try scaling our matrix $P$ by multiplying it with the matrix:
 $\begin{bmatrix}
@@ -106,7 +106,7 @@ We can reflect the points along the _y_-axis by multiplying all _x_ coordinates 
 0 & 1
 \end{bmatrix}$ and it'll mirror along the _y_-axis. And the visuals!
 
-<p style="text-align:center"><img src="https://www.dropbox.com/s/z43f2yauoguxc2o/matrix-reflection-result.png?dl=1"></p> 
+<p style="text-align:center"><img src="https://alyssaq.github.io/blog/images/matrix-reflection-result.png"></p> 
  
 ## Skewing 
 Lets skew the identity matrix by +50%. The vector along the _x_-axis stays the same while the vector along the _y_-axis shifts _k_ = 0.5 to the right. Our resultant matrix is now $\begin{bmatrix}
@@ -128,10 +128,10 @@ $\begin{bmatrix}
 \end{bmatrix}$ 
 will skew $P$ by 50%.
 
-<p style="text-align:center"><img src="https://www.dropbox.com/s/b0pq3gub3l1egsi/matrix-skewing-result.png?dl=1"></p> 
+<p style="text-align:center"><img src="https://alyssaq.github.io/blog/images/matrix-skewing-result.png"></p> 
 
 ## <a name="rotating"></a> Rotating
-<img src="https://www.dropbox.com/s/06hq4nwqet22vx6/matrix-rotating.png?dl=1" style="float:left">
+<img src="https://alyssaq.github.io/blog/images/matrix-rotating.png" style="float:left">
 My favourite linear transformation. Using the trusty [_SOH CAH TOA_](http://www.mathsisfun.com/algebra/sohcahtoa.html) acronym, we can see that    
 (1, 0) on the _x_-axis lands on $(cos \theta, sin \theta)$ and     
 (0, 1) on the _y_-axis lands on $(-sin \theta, cos \theta)$ when rotated by positive $\theta$. 
@@ -155,7 +155,7 @@ $\begin{bmatrix}
 0 & 10 & 27.32 & 17.32\\\
 0 & 17.32 & 7.32 & -10
 \end{bmatrix}$ 
-<img src="https://www.dropbox.com/s/dlwshpha586oac3/matrix-rotating-result.png?dl=1">
+<img src="https://alyssaq.github.io/blog/images/matrix-rotating-result.png">
 
 ## Translating
 Lastly, the affine transform to translate a matrix. To do this, we need to represent a 2-vector $(x, y)$ to a 3-vector $(x, y, 1)$. A translation matrix has the form $\begin{bmatrix}
@@ -186,7 +186,7 @@ translated_matrix:
             [ -0.25,  19.75,  19.75,  -0.25],
             [  1.  ,   1.  ,   1.  ,   1.  ]])
 
-<img src="https://www.dropbox.com/s/y28fsmgf5oxhgu8/matrix-translating-result.png?dl=1">
+<img src="https://alyssaq.github.io/blog/images/matrix-translating-result.png">
 
 ## Transformation matrix
 Heres a summary of the transformation matrices (courtesy of [wikipedia](http://en.wikipedia.org/wiki/Transformation_matrix)). Notice that a 2x2 linear transformation matrix becomes a 3x3 transformation matrix by padding it with 0s and a 1 at the bottom-right corner. 
