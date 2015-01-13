@@ -130,7 +130,7 @@ will skew $P$ by 50%.
 
 <p style="text-align:center"><img src="https://www.dropbox.com/s/b0pq3gub3l1egsi/matrix-skewing-result.png?dl=1"></p> 
 
-## Rotating
+## <a name="rotating"></a> Rotating
 <img src="https://www.dropbox.com/s/06hq4nwqet22vx6/matrix-rotating.png?dl=1" style="float:left">
 My favourite linear transformation. Using the trusty [_SOH CAH TOA_](http://www.mathsisfun.com/algebra/sohcahtoa.html) acronym, we can see that    
 (1, 0) on the _x_-axis lands on $(cos \theta, sin \theta)$ and     
