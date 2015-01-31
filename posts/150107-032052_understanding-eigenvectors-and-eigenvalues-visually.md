@@ -89,7 +89,7 @@ So, our eigenvectors, which span all vectors along the line through the origin, 
 
 ![eigenvectors_plot](https://alyssaq.github.io/blog/images/eigens-eigenvector_plot.png)
 
-__What does this eigen plot tell us?__    
+__What does this eigen plot tell us?__   
 The point where the first eigenvector line $e1$ intercepts the original matrix is $p1 = (10.68, -10)$. Multiplying this point by the corresponding eigenvalue of 0.719 OR by the transformation matrix $A$, yields $T(p1) = (7.684, -7.192)$.
 
 $$ \begin{equation}
@@ -118,7 +118,9 @@ Ax \\ &=
 \end{equation} \\\
 \therefore Ax = \lambda x $$	
 
-Doing this for $e2$ will show the same calculation. To complete the visuals, we'll plot $p1$ (the intercept with $e1$), $p2$ (the intercept with $e2$) and their transformation point.         
+Doing this for $e2$ will show the same calculation. As this eigenvector is associated with the largest eigenvalue of 1.481, this is the maximum possible stretch when acted by the transformation matrix. 
+
+To complete the visuals, we'll plot $p1$ (the intercept with $e1$), $p2$ (the intercept with $e2$) and their transformaed point $T(p1)$ and $T(p2)$.         
 [<i class="fa fa-github-alt"></i> Gist for the full plot](https://gist.github.com/alyssaq/f56ba93b4d3b3be76943)
 ![full_plot](https://alyssaq.github.io/blog/images/eigens-full_plot.png)
 
