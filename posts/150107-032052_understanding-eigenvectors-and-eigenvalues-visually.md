@@ -85,7 +85,7 @@ In [2]: m1 = y_v1/x_v1 # Gradient of 1st eigenvector
 Out [2]: m1 = -0.936, m2 = 1.603  # Round to 3dp
 </code></pre>
 
-So, our eigenvectors, which span all vectors along the line through the origin, have the equations: $y = -0.936x$ and $y = 1.603x$. This is plotted in blue and red below.
+So, our eigenvectors, which span all vectors along the line through the origin, have the equations: $y = -0.936x$ ($e1$) and $y = 1.603x$ ($e2$). This is plotted in blue and red below.
 
 ![eigenvectors_plot](https://alyssaq.github.io/blog/images/eigens-eigenvector_plot.png)
 
@@ -94,7 +94,7 @@ The point where the first eigenvector line $e1$ intercepts the original matrix i
 
 $$ \begin{equation}
 \begin{aligned}
-Ax \\ &=  
+A \times p1 \\ &=  
 \begin{bmatrix}
 1 & 0.3 \\\
 0.45 & 1.2
@@ -105,7 +105,7 @@ Ax \\ &=
 7.684 \\\
 -7.192
 \end{bmatrix} \\\
-\lambda x \\ &= 
+\lambda \times p1 \\ &= 
 0.719 & \times \begin{bmatrix}
 10.68 \\\
 -10
@@ -120,8 +120,38 @@ Ax \\ &=
 
 Doing this for $e2$ will show the same calculation. As this eigenvector is associated with the largest eigenvalue of 1.481, this is the maximum possible stretch when acted by the transformation matrix. 
 
-To complete the visuals, we'll plot $p1$ (the intercept with $e1$), $p2$ (the intercept with $e2$) and their transformaed point $T(p1)$ and $T(p2)$.         
+To complete the visuals, we'll plot $p1$ (the intercept with $e1$), $p2$ (the intercept with $e2$) and their transformed point $T(p1)$ and $T(p2)$.         
 [<i class="fa fa-github-alt"></i> Gist for the full plot](https://gist.github.com/alyssaq/f56ba93b4d3b3be76943)
 ![full_plot](https://alyssaq.github.io/blog/images/eigens-full_plot.png)
 
-I hope this set a good foundation for understanding other mathematical results.
+## [Eigendecomposition](#eigendecomposition)
+We can rearrange $Ax = \lambda x$ to represent $A$ as a product of its eigenvectors and eigenvalues by diagonalising the eigenvalues: 
+$$A = Q \Lambda Q^{-1}$$
+with $Q$ as the eigenvectors and $\Lambda$ as the diagonalised eigenvalues. Using the values from the example above:
+
+$$ \begin{bmatrix}
+1 & 0.3 \\\
+0.45 & 1.2
+\end{bmatrix} = 
+\begin{bmatrix}
+-0.730 & -0.529 \\\
+0.683 & -0.848
+\end{bmatrix}
+\begin{bmatrix}
+0.719 & 0 \\\
+0 & 1.481
+\end{bmatrix} 
+\begin{bmatrix}
+-0.730 & -0.529 \\\
+0.683 & -0.848
+\end{bmatrix}^{-1} $$
+
+To check this in Python:
+<pre><code class="language-python">
+In [1]: A = np.matrix([[1, 0.3], [0.45, 1.2]])
+In [2]: evals, evecs = np.linalg.eig(A)
+In [3]: np.allclose(A, evecs * np.diag(evals) * np.linalg.inv(evecs))
+Out[3]: True
+</code></pre>
+
+Next up, we'll connect the eigen decomposition to another super useful technique, the singular value decomposition.
