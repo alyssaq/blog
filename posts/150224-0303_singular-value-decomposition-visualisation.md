@@ -16,7 +16,7 @@ $U$ : $n \times n$ : orthogonal matrix containing eigenvectors of $AA^T$.
 $S$ : $n \times m$ : ordered singular values in the diagonal. Square root of eigenvalues associated with $AA^T$ or $A^TA$ (its the same).   
 $V$ : $m \times m$ : orthogonal matrix containing eigenvectors of $A^TA$.
 
-_Orthogonal matrix_: square matrix where $Q^TQ = QQ^T = I$ and $Q^T=Q^{-1}$. The dot product of 2 columns in an orthogonal matrix equals zero.    
+_Orthogonal matrix_: square matrix where columns make $90^\circ$ angles between each other and its inner dot product is zero. $Q^TQ = QQ^T = I$ and $Q^T=Q^{-1}$.    
 _Orthonormal matrix_: orthogonal matrix where columns are unit vectors.
  
 ## Example matrix
@@ -42,10 +42,26 @@ U:[[-0.58189652 -0.81326284]
 s:[ 1.49065822  0.71444949]
 V:[[-0.63586997 -0.77179621]
    [-0.77179621  0.63586997]]
+</code></pre>
 
+Lets verify some properties of the SVD matrices.
+<pre><code class="language-python">
 # Verify calculation of A=USV
 In[2]:  np.allclose(A, U * np.diag(s) * V)
 Out[2]: True
+
+# Verify orthonormal properties of U and V. (Peformed on U but the same applies for V).
+#  1) Dot product between columns = 0
+In[3]:  np.round([np.dot(U[:, i-1].A1,  U[:, i].A1) for i in xrange(1, len(U))])
+Out[3]: [ 0. 0.]
+
+#  2) Columns are unit vectors (length = 1)
+In[4]:  np.round(np.sum((U*U), 0))
+Out[4]: [[ 1.  1.  1.]]
+
+#  3) Multiplying by its transpose = identity matrix
+In[5]:  np.allclose(U.T * U, np.identity(len(U)))
+Out[5]: True
 </code></pre>
 
 ## Geometric interpretation of SVD
@@ -84,9 +100,9 @@ In an eigen-decomposition, $A$ can be represented by a product of its eigenvecto
 * Singular values in $S$ are all real and non-negative. The eigenvalues in $\Lambda$ can be complex and have imaginary numbers.
 
 ## Resources
-SVD ties together the core concepts of linear algebra --- matrix transformations, subspaces, basis, eigens, symmetric matrices, orthogonalisation and factorisation. While this post attempts to provide a high-level grasp of SVD, the full proofs and mathematical foundations are best obtained from the entire [MIT Linear Algebra lectures by Gilbert Strang](http://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/). I also found the examples and proofs for SVD and QR factorisation from the [University of Texas' MOOC](http://www.ulaff.net) useful.
+SVD ties together the core concepts of linear algebra --- matrix transformations, projections, subspaces, change of basis, eigens, symmetric matrices, orthogonalisation and factorisation. For a complete proof and backgound, I highly recommend the entire [MIT Linear Algebra lectures by Gilbert Strang](http://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/). I also found the examples and proofs for SVD and QR factorisation from the [University of Texas' MOOC](http://www.ulaff.net) useful.
 
-Other posts of SVD visualisations and applications:
+Other posts covering SVD visualisations and its applications:
 
  * <http://www.ams.org/samplings/feature-column/fcarc-svd>
  * <http://neurochannels.blogspot.sg/2008/02/visualizing-svd.html>
