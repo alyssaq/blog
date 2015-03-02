@@ -167,5 +167,5 @@ The partial PCA calculated the largest eigenvalue of 2942.0060 and its eigenvect
 Their $\theta$ difference is less than a fifth of $1^\circ$.
 
 For asymmetric blobs, both methods will be biased to the side that has the higher concentration of pixels. Heres an image where the axes appear to be slightly off and over-rotates in an attempt to align it (original image on the left):
-(original image on the left):
+
 ![three_plot](https://alyssaq.github.io/blog/images/blob_axes-three_plot.png)
