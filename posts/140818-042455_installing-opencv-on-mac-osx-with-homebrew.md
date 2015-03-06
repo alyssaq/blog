@@ -18,11 +18,19 @@ Tags: mac, opencv
     
 5. Check that it works!
 
-		$ python
+		$ ipython
 		Python 2.7.9
 		[GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
 		Type "help", "copyright", "credits" or "license" ...
-		>>>
-		>>> import cv2
-		>>> img = cv2.imread('path-to-image/helloworld.jpg')
-		>>> cv2.imshow('Test image', img)
+
+		In [1]: import cv2
+		In [2]: img = cv2.imread('path-to-image/helloworld.jpg')
+		In [3]: cv2.imshow('Test image', img)
+
+To check locations of site-packages folders:
+
+		In [4]: import site; site.getsitepackages()
+		Out[4]:
+		['/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages',
+ 		 '/Library/Frameworks/Python.framework/Versions/2.7/lib/site-python',
+ 		 '/Library/Python/2.7/site-packages']
