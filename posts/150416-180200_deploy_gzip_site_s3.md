@@ -87,6 +87,6 @@ deployment:
 Under `deployment`, the first `aws s3` command adds the `Content-Encoding: gzip` and `Cache-Control` headers to the JS and CSS assets. The second command syncs the remaining files.
 
 ## Overall
-I use [Cyberduck](https://cyberduck.io) to view all files in all S3 buckets on my Mac.
+On my Mac, I use [Cyberduck](https://cyberduck.io) to view all files in all my S3 buckets.
 
 It was not as friendly as Heroku but I was pretty happy with this auto-deployment set up at the end.
