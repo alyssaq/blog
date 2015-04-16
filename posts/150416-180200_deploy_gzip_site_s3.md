@@ -1,4 +1,4 @@
-Title: Deploy site with gzipped assets to AWS S3 using CircleCI
+Title: Site deployment with gzipped assets to AWS S3 using CircleCI
 Date: 2015-04-16 18:02
 Tags: aws, automation
 
