@@ -1,5 +1,5 @@
 Title: Deploy site with gzipped assets to AWS S3 using CircleCI
-Date: 2015-01-07 15:30 
+Date: 2015-04-16 18:02
 Tags: aws, automation
 
 I've been using [Heroku](https://www.heroku.com) and [Google App Engine](https://cloud.google.com/appengine/docs) to host most of my web applications. This time, I decided to use [Amazon S3](http://aws.amazon.com/s3) to serve a static website.
