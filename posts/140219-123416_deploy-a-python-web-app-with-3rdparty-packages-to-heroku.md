@@ -1,6 +1,6 @@
 Title: Deploy a Python web app with 3rd-party packages to Heroku
 Date: 2014-02-19 00:34 
-Tags: heroku, python, numpy, scipy, pandas, nltk, textblob
+Tags: heroku, python, numpy, pandas, nltk, automation
 Type: post
 
 ##Goal
