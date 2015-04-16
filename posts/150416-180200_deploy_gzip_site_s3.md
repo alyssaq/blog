@@ -5,13 +5,13 @@ Tags: aws, automation
 I've been using [Heroku](https://www.heroku.com) and [Google App Engine](https://cloud.google.com/appengine/docs) to host most of my web applications. This time, I decided to use [Amazon S3](http://aws.amazon.com/s3) to serve a static website.
 
 ## Amazon S3 setup
-2 things to do. After creating your S3 bucket, click on the `Properties` button.
+After creating your S3 bucket, click on the `Properties` button.
 
 1) Enable static website hosting. For single page apps, specify the same error and index document.
 
 ![s3_static_config](https://alyssaq.github.io/blog/images/S3deploy_enable-static-site.png)
 
-2) Under Permissions > Edit CORS Configuration, make all files in this bucket accessible by the public by pasting this XML:
+2) Under Permissions > Edit CORS Configuration, make all files in this bucket accessible to the public by pasting this XML:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
@@ -27,12 +27,12 @@ I've been using [Heroku](https://www.heroku.com) and [Google App Engine](https:/
 There are 2 save buttons. Per section and global save, so click em all!
 
 ## Gzip assets with gulp
-Unfortunately, S3 does not automatically gzip assets. Here is their [verbose instructions for serving compressed files](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html#CompressedS3).  
+Unfortunately, S3 does not automatically compress assets. Here is their [verbose instructions for serving compressed files](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html#CompressedS3).  
 
 Basically,    
 
 1. gzip assets
-2. Set `Content-Encoding: gzip`
+2. Set header with `Content-Encoding: gzip`
 
 Yes, my JS and CSS assets are always gzipped and ancient browsers (such as IE < 5, Firefox < 0.9.5) are not supported. Code for the future!
 
@@ -40,15 +40,17 @@ I gzip as part of my [gulp](http://gulpjs.com) build.
 
 Heres the relevant gulp `build` task:
 
-    gulp.task('build', ['clean'], function () {
-      gulp.start('default', function() {
-        return gulp.src('dist/**/*')
-          .pipe($.size({title: 'build', gzip: true}))
-          .pipe($.if('*.js', $.gzip({ append: false })))
-          .pipe($.if('*.css', $.gzip({ append: false })))
-          .pipe(gulp.dest('dist'))
-      })
-    })
+<pre><code class="language-javascript">
+gulp.task('build', ['clean'], function () {
+  gulp.start('default', function() {
+    return gulp.src('dist/**/*')
+      .pipe($.size({title: 'build', gzip: true}))
+      .pipe($.if('*.js', $.gzip({ append: false })))
+      .pipe($.if('*.css', $.gzip({ append: false })))
+      .pipe(gulp.dest('dist'))
+  })
+})
+</code></pre>
 
 I run `clean` (to delete destination folder), then the `default` task (to browserify, babelify, concatenate, minify, replace, etc) and then `gzip` only the minified JS and CSS assets.
 
@@ -65,22 +67,24 @@ To deploy the app to S3, circleCI runs `gulp build` and sync the `dist` folder w
 
 My `circle.yml`:
 
-
-    machine:
-       node:
-         version: 0.12.0
-     dependencies:
-       post:
-         - npm install -g gulp-cli && gulp build
-     deployment:
-       production:
-         branch: master
-         commands:
-           - sudo pip install awscli
-           - aws s3 sync dist/ s3://newcleus-app --exclude "*" --include "*.css" --include "*.js" --content-encoding gzip --cache-control public,max-age=30672000
-           - aws s3 sync dist/ s3://newcleus-app --exclude "*.js" --exclude "*.css"
+<pre class="language-yml"><code class="language-yml">
+machine:
+  node:
+    version: 0.12.0
+dependencies:
+  post:
+    - npm install -g gulp-cli && gulp build
+deployment:
+  production:
+    branch: master
+    commands:
+      - sudo pip install awscli
+      - aws s3 sync dist/ s3://newcleus-app --exclude "*" --include "*.css" --include "*.js"
+ --content-encoding gzip --cache-control public,max-age=30672000
+      - aws s3 sync dist/ s3://newcleus-app --exclude "*.js" --exclude "*.css"
+</code></pre>
            
-Under `deployment`, the `aws s3` commands first add the `Content-Encoding: gzip` and `Cache-Control` headers to the JS and CSS assets. The in the following command, it syncs the remaining files.
+Under `deployment`, the first `aws s3` command adds the `Content-Encoding: gzip` and `Cache-Control` headers to the JS and CSS assets. The second command syncs the remaining files.
 
 ## Overall
 I use [Cyberduck](https://cyberduck.io) to view all files in all S3 buckets on my Mac.
