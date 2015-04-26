@@ -89,4 +89,4 @@ Under `deployment`, the first `aws s3` command adds the `Content-Encoding: gzip`
 ## Overall
 On my Mac, I use [Cyberduck](https://cyberduck.io) to view all files in all my S3 buckets.
 
-It was not as friendly as Heroku but I was pretty happy with this auto-deployment set up at the end.
+In the end, while not as friendly as Heroku, I was pretty happy with this auto-deployment to S3.
